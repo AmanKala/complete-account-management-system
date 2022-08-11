@@ -114,14 +114,6 @@ exports["default"] = SelectField;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -186,6 +178,8 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var inertia_1 = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+
 var Heading_1 = __webpack_require__(/*! ../Components/Heading */ "./resources/js/Components/Heading.tsx");
 
 var InputField_1 = __importDefault(__webpack_require__(/*! ../Components/InputField */ "./resources/js/Components/InputField.tsx"));
@@ -196,17 +190,19 @@ var CreateTransaction = function CreateTransaction() {
   var _ref = (0, react_1.useState)({
     title: '',
     date: '',
+    paid_by_to: '',
     amount: '',
-    status: ''
+    quantity: '',
+    unit_name: '',
+    type: '',
+    status: '',
+    utr: '',
+    project: '',
+    comment: ''
   }),
       _ref2 = _slicedToArray(_ref, 2),
       transaction = _ref2[0],
       setTransaction = _ref2[1];
-
-  var _ref3 = (0, react_1.useState)([{}]),
-      _ref4 = _slicedToArray(_ref3, 2),
-      allTrans = _ref4[0],
-      setAllTrans = _ref4[1];
 
   var handleData = function handleData(event) {
     event.preventDefault();
@@ -220,11 +216,18 @@ var CreateTransaction = function CreateTransaction() {
     setTransaction({
       title: '',
       date: '',
+      paid_by_to: '',
       amount: '',
-      status: ''
+      quantity: '',
+      unit_name: '',
+      type: '',
+      status: '',
+      utr: '',
+      project: '',
+      comment: ''
     });
-    setAllTrans([].concat(_toConsumableArray(allTrans), [newEntry]));
-    console.log(allTrans);
+    console.log(transaction);
+    inertia_1.Inertia.post('/createtransaction', transaction);
   };
 
   var name, value;
@@ -233,6 +236,7 @@ var CreateTransaction = function CreateTransaction() {
     name = event.target.name;
     value = event.target.value;
     setTransaction(Object.assign(Object.assign({}, transaction), _defineProperty({}, name, value)));
+    console.log(transaction);
   };
 
   var handleSelect = function handleSelect(event) {
@@ -258,22 +262,62 @@ var CreateTransaction = function CreateTransaction() {
     type: "date",
     onChange: handleInput
   }), react_1["default"].createElement(InputField_1["default"], {
+    title: "Paid by/to",
+    name: "paid_by_to",
+    value: transaction.paid_by_to,
+    type: "text",
+    onChange: handleInput
+  }), react_1["default"].createElement(InputField_1["default"], {
     title: "Amount",
     name: "amount",
     value: transaction.amount,
     type: "number",
     onChange: handleInput
+  }), react_1["default"].createElement(InputField_1["default"], {
+    title: "quantity",
+    name: "quantity",
+    value: transaction.quantity,
+    type: "number",
+    onChange: handleInput
+  }), react_1["default"].createElement(InputField_1["default"], {
+    title: "Unit Name",
+    name: "unit_name",
+    value: transaction.unit_name,
+    type: "text",
+    onChange: handleInput
+  }), react_1["default"].createElement(SelectField_1["default"], {
+    title: "Type",
+    name: "type",
+    dropdown: ['Expense', 'Revenue'],
+    value: transaction.type,
+    onChange: handleSelect
   }), react_1["default"].createElement(SelectField_1["default"], {
     title: "Status",
     name: "status",
     dropdown: ['Due', 'Cancled', 'Cleared'],
     value: transaction.status,
     onChange: handleSelect
+  }), react_1["default"].createElement(InputField_1["default"], {
+    title: "UTR",
+    name: "utr",
+    value: transaction.utr,
+    type: "text",
+    onChange: handleInput
+  }), react_1["default"].createElement(InputField_1["default"], {
+    title: "Project",
+    name: "project",
+    value: transaction.project,
+    type: "text",
+    onChange: handleInput
+  }), react_1["default"].createElement(InputField_1["default"], {
+    title: "Comment",
+    name: "comment",
+    value: transaction.comment,
+    type: "text",
+    onChange: handleInput
   }), react_1["default"].createElement("button", {
     type: "submit"
-  }, "Create Transaction")), react_1["default"].createElement(Heading_1.Heading, {
-    title: "Transaction List"
-  }));
+  }, "Create Transaction")));
 };
 
 exports["default"] = CreateTransaction;

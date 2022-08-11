@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Inertia } from '@inertiajs/inertia'
+import { Inertia } from '@inertiajs/inertia';
 import {Heading} from "../Components/Heading";
 import InputField from "../Components/InputField";
 

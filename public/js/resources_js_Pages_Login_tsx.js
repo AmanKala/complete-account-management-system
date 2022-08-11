@@ -138,18 +138,15 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js")); // import { useForm } from '@inertiajs/inertia-react'
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var inertia_1 = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 
 var Heading_1 = __webpack_require__(/*! ../Components/Heading */ "./resources/js/Components/Heading.tsx");
 
 var InputField_1 = __importDefault(__webpack_require__(/*! ../Components/InputField */ "./resources/js/Components/InputField.tsx"));
 
 var Register = function Register() {
-  // const { data, setData, post, processing, errors } = useForm({
-  //     first_name: "",
-  //     email:"",
-  // });
   var _ref = (0, react_1.useState)({
     email: "",
     password: ""
@@ -160,7 +157,7 @@ var Register = function Register() {
 
   var handleData = function handleData(event) {
     event.preventDefault();
-    console.log(user); // post(route('register'))
+    inertia_1.Inertia.post('/login', user);
   };
 
   var name, value;
@@ -189,7 +186,7 @@ var Register = function Register() {
     onChange: handleInput
   }), react_1["default"].createElement("button", {
     type: "submit"
-  }, "Register")));
+  }, "Login")));
 };
 
 exports["default"] = Register;

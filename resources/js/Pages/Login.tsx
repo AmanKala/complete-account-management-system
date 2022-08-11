@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Inertia } from '@inertiajs/inertia';
 import {Heading} from "../Components/Heading";
 import InputField from "../Components/InputField";
 
@@ -9,7 +10,7 @@ const Register = () =>{
     })
     const handleData = (event: React.FormEvent<HTMLFormElement>)=>{
         event.preventDefault();
-        console.log(user);
+        Inertia.post('/login', user);
     }
     let name,value;
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>) =>{

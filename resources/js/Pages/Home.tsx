@@ -1,12 +1,15 @@
 import React from "react";
-import CreateTransaction from "./CreateTransaction";
-import Register from "./Register";
+import { Heading } from "../Components/Heading";
+import { Inertia } from '@inertiajs/inertia';
 
 const Home = () => {
+    const handleTransaction =()=>{
+        Inertia.get('createtransaction');
+    }
     return (
         <>
-            <Register/>
-            <CreateTransaction/>
+            <Heading title="Hey There! Welcome..." />
+            <button onClick={handleTransaction}>Create Transaction</button>
         </>
     );
 };
