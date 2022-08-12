@@ -160,7 +160,6 @@ var Register = function Register() {
 
   var handleData = function handleData(event) {
     event.preventDefault();
-    console.log(user);
     inertia_1.Inertia.post('/register', user);
   };
 

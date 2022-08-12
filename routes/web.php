@@ -31,3 +31,5 @@ Route::post('/login', [AuthController::class, 'check'])->name('login.check');
 
 Route::get('/createtransaction', [TransController::class, 'createTransaction'])->name('createtransaction');
 Route::post('/createtransaction', [TransController::class, 'store'])->name('createtransaction.store');
+
+Route::get('/transationlist', [TransController::class, 'transationlist'])->name('transationlist');

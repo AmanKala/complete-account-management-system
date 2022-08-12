@@ -14,7 +14,6 @@ const Register = () =>{
     })
     const handleData = (event: React.FormEvent<HTMLFormElement>)=>{
         event.preventDefault();
-        console.log(user);
         Inertia.post('/register', user);
     }
     let name,value;

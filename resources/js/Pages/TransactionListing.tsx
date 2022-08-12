@@ -1,19 +1,16 @@
 import React from "react";
 import { Heading } from "../Components/Heading";
-type ListProps={
-    allTrans:{
-        id:string
-        title:string
-        date:string
-        amount:number
-        status: string
-    }[]
-}
+import { Inertia } from '@inertiajs/inertia';
 
+type ListProps=any;
 const TransactionListing = (props:ListProps) =>{
+    const handleClick = () =>{
+        Inertia.get('createtransaction');
+    }
     return(
         <>
             <Heading title='Transaction List' />
+            {console.log(props)}
             <table className="table-auto min-w-full mt-5">
                 <thead className="border-b">
                     <tr>
@@ -29,29 +26,31 @@ const TransactionListing = (props:ListProps) =>{
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                        props.allTrans.map((trans)=>{
+                       {
+                        props.data.map((trans: any)=>{
                             return(
-                                <tr key={trans.id} className="border-b text-center">
-                                <td>{trans.title}</td>
-                                <td>{trans.date}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>{trans.status}</td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button>EDIT</button>
-                                </td>
-                            </tr> 
+                                <tr key={trans.id}>
+                                    <td> {trans.title} </td>
+                                    <td> {trans.date} </td>
+                                    <td> {trans.paid_by_to} </td>
+                                    <td> {trans.amount*trans.quantity} </td>
+                                    <td> {trans.type} </td>
+                                    <td> {trans.status} </td>
+                                    <td> {trans.utr} </td>
+                                    <td> {trans.project} </td>
+                                    <td> 
+                                        <button>Edit</button> 
+                                        <button>Delete</button> 
+                                        <button>Generate Receipt</button> 
+                                    </td>
+                                </tr>
                             )
                         })
-                    }
+                       } 
                 </tbody>
             </table>
             <br/>
-            <button>Create Transaction</button>
+            <button onClick={handleClick}>Create Transaction</button>
         </>
     )
 }

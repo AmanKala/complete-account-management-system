@@ -18,6 +18,11 @@ class TransController extends Controller
     {
         // Validate and Save the values in database.
         Transaction::create($req->validated());
-        return Redirect::route('home');
+        return Redirect::route('transationlist');
+    }
+    public function transationlist ()
+    {
+        $data = Transaction::all();
+        return Inertia::render('TransactionListing',['data'=>$data]);
     }
 }
