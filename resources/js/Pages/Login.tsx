@@ -1,29 +1,31 @@
 import React, { useState } from "react";
-import { Inertia } from '@inertiajs/inertia';
 import {Heading} from "../Components/Heading";
 import InputField from "../Components/InputField";
+import { useForm } from '@inertiajs/inertia-react'
 
 const Register = () =>{
-    const [user,setUser] = useState({
+    const { data, setData, post, processing, errors } = useForm({
         email:"",
         password:"",
-    })
+      })
     const handleData = (event: React.FormEvent<HTMLFormElement>)=>{
         event.preventDefault();
-        Inertia.post('/login', user);
+        post('/login');
     }
     let name,value;
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>) =>{
         name = event.target.name;
         value= event.target.value;
-        setUser({...user,[name]:value});
+        setData({...data,[name]:value});
     }
     return(
         <>
             <Heading title="Login Page" />
             <form onSubmit={handleData}>
-                <InputField title="Email Id" name="email" value={user.email} type="email" onChange={handleInput} />
-                <InputField title="Password" name="password" value={user.password} type="password" onChange={handleInput} />
+                <InputField title="Email Id" name="email" value={data.email} type="email" onChange={handleInput} />
+                {errors.email && <div>{errors.email}</div>}
+                <InputField title="Password" name="password" value={data.password} type="password" onChange={handleInput} />
+                {errors.password && <div>{errors.password}</div>}
 
                 <button type="submit">Login</button>
             </form>
