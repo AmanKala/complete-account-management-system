@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_CreateTransaction_tsx"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_Edit_tsx"],{
 
 /***/ "./resources/js/Components/Heading.tsx":
 /*!*********************************************!*\
@@ -108,10 +108,10 @@ exports["default"] = SelectField;
 
 /***/ }),
 
-/***/ "./resources/js/Pages/CreateTransaction.tsx":
-/*!**************************************************!*\
-  !*** ./resources/js/Pages/CreateTransaction.tsx ***!
-  \**************************************************/
+/***/ "./resources/js/Pages/Edit.tsx":
+/*!*************************************!*\
+  !*** ./resources/js/Pages/Edit.tsx ***!
+  \*************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -138,31 +138,35 @@ var SelectField_1 = __importDefault(__webpack_require__(/*! ../Components/Select
 
 var inertia_react_1 = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 
-var CreateTransaction = function CreateTransaction() {
-  var _ref = (0, inertia_react_1.useForm)({
-    title: '',
-    date: '',
-    paid_by_to: '',
-    amount: '',
-    quantity: '',
-    unit_name: '',
-    type: '',
-    status: '',
-    utr: '',
-    project: '',
-    comment: ''
+var Edit = function Edit(_ref) {
+  var transaction = _ref.transaction;
+
+  var _ref2 = (0, inertia_react_1.useForm)({
+    title: transaction.title,
+    id: transaction.id,
+    date: transaction.date,
+    paid_by_to: transaction.paid_by_to,
+    amount: transaction.amount,
+    quantity: transaction.quantity,
+    unit_name: transaction.unit_name,
+    type: transaction.type,
+    status: transaction.status,
+    utr: transaction.utr,
+    project: transaction.project,
+    comment: transaction.comment
   }),
-      data = _ref.data,
-      setData = _ref.setData,
-      post = _ref.post,
-      processing = _ref.processing,
-      errors = _ref.errors;
+      data = _ref2.data,
+      setData = _ref2.setData,
+      post = _ref2.post,
+      processing = _ref2.processing,
+      errors = _ref2.errors;
 
   var handleData = function handleData(event) {
     event.preventDefault();
-    post('/createtransaction', {
+    post('/edit', {
       onSuccess: function onSuccess(page) {
         setData({
+          id: '',
           title: '',
           date: '',
           paid_by_to: '',
@@ -177,7 +181,6 @@ var CreateTransaction = function CreateTransaction() {
         });
       }
     });
-    console.log(data);
   };
 
   var name, value;
@@ -186,7 +189,6 @@ var CreateTransaction = function CreateTransaction() {
     name = event.target.name;
     value = event.target.value;
     setData(Object.assign(Object.assign({}, data), _defineProperty({}, name, value)));
-    console.log(data);
   };
 
   var handleSelect = function handleSelect(event) {
@@ -196,11 +198,17 @@ var CreateTransaction = function CreateTransaction() {
   };
 
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Heading_1.Heading, {
-    title: "Create Transaction"
-  }), react_1["default"].createElement("form", {
+    title: "Edit Transaction"
+  }), console.log(transaction), react_1["default"].createElement("form", {
     onSubmit: handleData,
     className: "m-5"
   }, react_1["default"].createElement(InputField_1["default"], {
+    title: "",
+    name: "id",
+    value: data.title,
+    type: "hidden",
+    onChange: handleInput
+  }), react_1["default"].createElement(InputField_1["default"], {
     title: "Title",
     name: "title",
     value: data.title,
@@ -268,14 +276,11 @@ var CreateTransaction = function CreateTransaction() {
     onChange: handleInput
   }), errors.comment && react_1["default"].createElement("div", null, errors.comment), react_1["default"].createElement("button", {
     type: "submit",
-    className: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-5"
-  }, "Create Transaction"), react_1["default"].createElement(inertia_react_1.InertiaLink, {
-    href: 'transationlist',
-    className: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5"
-  }, "Transaction List")));
+    className: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+  }, "Edit Transaction")));
 };
 
-exports["default"] = CreateTransaction;
+exports["default"] = Edit;
 
 /***/ })
 

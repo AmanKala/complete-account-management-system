@@ -12,12 +12,10 @@ const InputField = (props: InputProps) =>
     return(
         <>
             <div>
-                <label >{props.title}</label>
-                <br/>
+                <label className="block text-gray-500 font-bold mb-1 md:mb-0 pr-4">{props.title}</label>
                 {
-                    <input className="shadow appearance-none border rounded w-half py-2 px-3 text-gray-700 focus:shadow-outline" type={props.type} name={props.name} value={props.value} onChange={props.onChange} />
+                    <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-1 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type={props.type} name={props.name} value={props.value} onChange={props.onChange} />
                 }
-                <br/><br/>
             </div>
         </>
     )

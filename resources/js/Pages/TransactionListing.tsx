@@ -1,11 +1,22 @@
 import React from "react";
 import { Heading } from "../Components/Heading";
 import { Inertia } from '@inertiajs/inertia';
+import { InertiaLink } from "@inertiajs/inertia-react";
 
 type ListProps=any;
 const TransactionListing = (props:ListProps) =>{
     const handleClick = () =>{
         Inertia.get('createtransaction');
+    }
+    const showPromt = (id:any) => {
+        if(window.confirm('Delete this transaction?')){
+            const url=`/delete/${id}`;
+            Inertia.get(url);
+        }
+    }
+    const generateReceipt = (id:any) =>{
+        const url=`/receipt/${id}`;
+        Inertia.get(url);
     }
     return(
         <>
@@ -29,7 +40,7 @@ const TransactionListing = (props:ListProps) =>{
                        {
                         props.data.map((trans: any)=>{
                             return(
-                                <tr key={trans.id}>
+                                <tr key={trans.id} className="border-b text-center">
                                     <td> {trans.title} </td>
                                     <td> {trans.date} </td>
                                     <td> {trans.paid_by_to} </td>
@@ -39,9 +50,10 @@ const TransactionListing = (props:ListProps) =>{
                                     <td> {trans.utr} </td>
                                     <td> {trans.project} </td>
                                     <td> 
-                                        <button>Edit</button> 
-                                        <button>Delete</button> 
-                                        <button>Generate Receipt</button> 
+                                        <InertiaLink href={`/edit/${trans.id}`} className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white px-4 border border-blue-500 hover:border-transparent rounded">Edit</InertiaLink>
+                                        <button className="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white px-4 border border-red-500 hover:border-transparent rounded" onClick={()=>{showPromt(trans.id)}}>Delete</button>
+                                         
+                                        <button className="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white px-4 border border-green-500 hover:border-transparent rounded" onClick={()=>{generateReceipt(trans.id)}}>Generate Receipt</button> 
                                     </td>
                                 </tr>
                             )
@@ -50,7 +62,7 @@ const TransactionListing = (props:ListProps) =>{
                 </tbody>
             </table>
             <br/>
-            <button onClick={handleClick}>Create Transaction</button>
+            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-5" onClick={handleClick}>Create Transaction</button>
         </>
     )
 }

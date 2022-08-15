@@ -39864,6 +39864,14 @@ var map = {
 		"./resources/js/Pages/CreateTransaction.tsx",
 		"resources_js_Pages_CreateTransaction_tsx"
 	],
+	"./Edit": [
+		"./resources/js/Pages/Edit.tsx",
+		"resources_js_Pages_Edit_tsx"
+	],
+	"./Edit.tsx": [
+		"./resources/js/Pages/Edit.tsx",
+		"resources_js_Pages_Edit_tsx"
+	],
 	"./Home": [
 		"./resources/js/Pages/Home.tsx",
 		"resources_js_Pages_Home_tsx"
@@ -39879,6 +39887,14 @@ var map = {
 	"./Login.tsx": [
 		"./resources/js/Pages/Login.tsx",
 		"resources_js_Pages_Login_tsx"
+	],
+	"./Receipt": [
+		"./resources/js/Pages/Receipt.tsx",
+		"resources_js_Pages_Receipt_tsx"
+	],
+	"./Receipt.tsx": [
+		"./resources/js/Pages/Receipt.tsx",
+		"resources_js_Pages_Receipt_tsx"
 	],
 	"./Register": [
 		"./resources/js/Pages/Register.tsx",
@@ -40075,7 +40091,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_CreateTransaction_tsx":1,"resources_js_Pages_Home_tsx":1,"resources_js_Pages_Login_tsx":1,"resources_js_Pages_Register_tsx":1,"resources_js_Pages_TransactionListing_tsx":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_CreateTransaction_tsx":1,"resources_js_Pages_Edit_tsx":1,"resources_js_Pages_Home_tsx":1,"resources_js_Pages_Login_tsx":1,"resources_js_Pages_Receipt_tsx":1,"resources_js_Pages_Register_tsx":1,"resources_js_Pages_TransactionListing_tsx":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

@@ -2,27 +2,29 @@ import React, { useState } from "react";
 import {Heading} from "../Components/Heading";
 import InputField from "../Components/InputField";
 import SelectField from "../Components/SelectField";
-import { InertiaLink, useForm } from '@inertiajs/inertia-react'
+import { useForm } from '@inertiajs/inertia-react'
 
-const CreateTransaction = () =>{
+const Edit = ({transaction}:any) =>{
     const { data, setData, post, processing, errors } = useForm({
-        title:'',
-        date:'',
-        paid_by_to:'',
-        amount:'',
-        quantity:'',
-        unit_name:'',
-        type:'',
-        status:'',
-        utr:'',
-        project:'',
-        comment:'',
+        title:transaction.title,
+        id:transaction.id,
+        date:transaction.date,
+        paid_by_to:transaction.paid_by_to,
+        amount:transaction.amount,
+        quantity:transaction.quantity,
+        unit_name:transaction.unit_name,
+        type:transaction.type,
+        status:transaction.status,
+        utr:transaction.utr,
+        project:transaction.project,
+        comment:transaction.comment,
       })
 
     const handleData = (event: React.FormEvent<HTMLFormElement>) =>{
         event.preventDefault();
-        post('/createtransaction',{
+        post('/edit',{
             onSuccess: page => {setData({
+                id:'',
                 title:'',
                 date:'',
                 paid_by_to:'',
@@ -36,7 +38,6 @@ const CreateTransaction = () =>{
                 comment:'',
             });},
         });
-        console.log(data);
     }
 
     let name,value;
@@ -45,7 +46,6 @@ const CreateTransaction = () =>{
         value= event.target.value;
 
         setData({...data, [name]:value});
-        console.log(data);
     }
     const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) =>{
         name = event.target.name;
@@ -56,8 +56,10 @@ const CreateTransaction = () =>{
 
     return(
         <>
-            <Heading title="Create Transaction" />
+            <Heading title="Edit Transaction" />
+            {console.log(transaction)}
             <form onSubmit={handleData} className="m-5">
+                <InputField title="" name="id" value={data.title} type="hidden" onChange={handleInput} />
                 <InputField title="Title" name="title" value={data.title} type="text" onChange={handleInput} />
                 {errors.title && <div>{errors.title}</div>}
                 <InputField title="Date" name="date" value={data.date} type="date" onChange={handleInput} />
@@ -81,12 +83,11 @@ const CreateTransaction = () =>{
                 <InputField title="Comment" name="comment" value={data.comment} type="text" onChange={handleInput} />
                 {errors.comment && <div>{errors.comment}</div>}
 
-                <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-5">Create Transaction</button>
-                <InertiaLink href='transationlist' className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5">Transaction List</InertiaLink>
+                <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Edit Transaction</button>
             </form>
 
         </>
     )
 }
 
-export default CreateTransaction;
+export default Edit;

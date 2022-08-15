@@ -5,7 +5,7 @@ use App\Http\Controllers\TransController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/home', [AuthController::class, 'home'])->name('home');
+Route::get('/', [AuthController::class, 'home'])->name('home');
 
 
 /*
@@ -19,10 +19,6 @@ Route::get('/home', [AuthController::class, 'home'])->name('home');
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'store'])->name('register.store');
 
@@ -33,3 +29,10 @@ Route::get('/createtransaction', [TransController::class, 'createTransaction'])-
 Route::post('/createtransaction', [TransController::class, 'store'])->name('createtransaction.store');
 
 Route::get('/transationlist', [TransController::class, 'transationlist'])->name('transationlist');
+
+Route::get('/edit/{id}', [TransController::class, 'edit'])->name('edit');
+Route::post('/edit', [TransController::class, 'update'])->name('update');
+
+Route::get('delete/{id}',[TransController::class, 'delete'])->name('delete');
+
+Route::get('receipt/{id}', [TransController::class,'generatePDF'])->name('receipt');
