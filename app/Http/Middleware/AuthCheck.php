@@ -17,11 +17,10 @@ class AuthCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        // dd(session()->has('logged_user'));
-        // if(!session()->has('logged_user') && ($request->path() != '/login' && $request->path() != '/register') )
-        // {
-        //     return Redirect::route('login');
-        // }
+        if(!session()->has('logged_user') && ($request->path() != '/login' && $request->path() != '/register') )
+        {
+            return Redirect::route('login');
+        }
         return $next($request);
     }
 }

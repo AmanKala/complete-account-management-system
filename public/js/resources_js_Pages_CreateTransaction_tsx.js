@@ -102,7 +102,10 @@ var Navbar = function Navbar() {
   }, "Transaction List"), react_1["default"].createElement(inertia_react_1.InertiaLink, {
     href: "/createtransaction",
     className: "bg-transparent font-semibold hover:underline text-white hover:text-green-200 px-4 hover:border-transparent rounded"
-  }, "Create Transaction")));
+  }, "Create Transaction"), react_1["default"].createElement(inertia_react_1.InertiaLink, {
+    href: "/logout",
+    className: "bg-transparent font-semibold hover:underline text-white hover:text-red-400 px-4 hover:border-transparent rounded"
+  }, "Logout")));
 };
 
 exports["default"] = Navbar;

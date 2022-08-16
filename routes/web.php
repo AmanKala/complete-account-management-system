@@ -4,8 +4,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TransController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [AuthController::class, 'home'])->name('home');
-
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +22,11 @@ Route::post('/register', [AuthController::class, 'store'])->name('register.store
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'check'])->name('login.check');
 
-
+Route::get('/logout', [AuthController::class,'logout']);
 
 Route::group(['middleware'=>['auth.check']],function(){
+    Route::get('/', [AuthController::class, 'home'])->name('home');
+
     Route::get('/createtransaction', [TransController::class, 'createTransaction'])->name('createtransaction');
     Route::post('/createtransaction', [TransController::class, 'store'])->name('createtransaction.store');
     

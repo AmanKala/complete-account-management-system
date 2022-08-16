@@ -1,10 +1,10 @@
 "use strict";
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_Receipt_tsx"],{
 
-/***/ "./resources/js/Components/Heading.tsx":
-/*!*********************************************!*\
-  !*** ./resources/js/Components/Heading.tsx ***!
-  \*********************************************/
+/***/ "./resources/js/Components/Navbar.tsx":
+/*!********************************************!*\
+  !*** ./resources/js/Components/Navbar.tsx ***!
+  \********************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -18,17 +18,30 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.Heading = void 0;
+
+var inertia_react_1 = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var Heading = function Heading(props) {
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("h1", {
-    className: "text-xl text-center text-gray-700 font-bold hover:text-red-700"
-  }, props.title), react_1["default"].createElement("hr", null));
+var Navbar = function Navbar() {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("nav", {
+    className: "w-full bg-stone-500 shadow p-1"
+  }, react_1["default"].createElement(inertia_react_1.InertiaLink, {
+    href: "/",
+    className: "bg-transparent font-semibold hover:underline text-white hover:text-green-200 px-4 hover:border-transparent rounded"
+  }, "Home"), react_1["default"].createElement(inertia_react_1.InertiaLink, {
+    href: "/transationlist",
+    className: "bg-transparent font-semibold hover:underline text-white hover:text-green-200 px-4 hover:border-transparent rounded"
+  }, "Transaction List"), react_1["default"].createElement(inertia_react_1.InertiaLink, {
+    href: "/createtransaction",
+    className: "bg-transparent font-semibold hover:underline text-white hover:text-green-200 px-4 hover:border-transparent rounded"
+  }, "Create Transaction"), react_1["default"].createElement(inertia_react_1.InertiaLink, {
+    href: "/logout",
+    className: "bg-transparent font-semibold hover:underline text-white hover:text-red-400 px-4 hover:border-transparent rounded"
+  }, "Logout")));
 };
 
-exports.Heading = Heading;
+exports["default"] = Navbar;
 
 /***/ }),
 
@@ -52,9 +65,9 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var Heading_1 = __webpack_require__(/*! ../Components/Heading */ "./resources/js/Components/Heading.tsx");
-
 var jspdf_1 = __importDefault(__webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js"));
+
+var Navbar_1 = __importDefault(__webpack_require__(/*! ../Components/Navbar */ "./resources/js/Components/Navbar.tsx"));
 
 var Receipt = function Receipt(_ref) {
   var transaction = _ref.transaction;
@@ -68,16 +81,16 @@ var Receipt = function Receipt(_ref) {
     });
   };
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("button", {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Navbar_1["default"], null), react_1["default"].createElement("button", {
     onClick: downloadPDF,
-    className: "bg-green-600 hover:bg-green-500 text-white px-2 rounded"
-  }, "Download PDF"), react_1["default"].createElement("div", {
+    className: "bg-green-600 hover:bg-green-500 text-white px-2 rounded m-2"
+  }, "Download PDF"), react_1["default"].createElement("br", null), react_1["default"].createElement("div", {
     id: "receipt"
-  }, react_1["default"].createElement(Heading_1.Heading, {
-    title: "Receipt"
-  }), react_1["default"].createElement("div", {
+  }, react_1["default"].createElement("h1", {
     className: "text-center"
-  }, react_1["default"].createElement("span", null, "Title : \xA0 "), react_1["default"].createElement("span", null, transaction.title), react_1["default"].createElement("br", null), react_1["default"].createElement("span", null, "Project : \xA0 "), react_1["default"].createElement("span", null, transaction.project), react_1["default"].createElement("br", null), react_1["default"].createElement("span", null, "Amount : \xA0 "), react_1["default"].createElement("span", null, transaction.amount), react_1["default"].createElement("br", null))));
+  }, react_1["default"].createElement("b", null, "Transaction Receipt")), react_1["default"].createElement("br", null), react_1["default"].createElement("div", {
+    className: "m-5"
+  }, react_1["default"].createElement("span", null, react_1["default"].createElement("b", null, "Title : \xA0"), " "), react_1["default"].createElement("span", null, transaction.title), react_1["default"].createElement("br", null), react_1["default"].createElement("span", null, react_1["default"].createElement("b", null, "Project : \xA0"), " "), react_1["default"].createElement("span", null, transaction.project), react_1["default"].createElement("br", null), react_1["default"].createElement("span", null, react_1["default"].createElement("b", null, "Status : \xA0"), " "), react_1["default"].createElement("span", null, transaction.status), react_1["default"].createElement("br", null), react_1["default"].createElement("span", null, react_1["default"].createElement("b", null, "Type : \xA0"), " "), react_1["default"].createElement("span", null, transaction.type), react_1["default"].createElement("br", null), react_1["default"].createElement("span", null, react_1["default"].createElement("b", null, "Amount : \xA0"), " "), react_1["default"].createElement("span", null, transaction.unit, " ", transaction.amount * transaction.quantity), react_1["default"].createElement("br", null))));
 };
 
 exports["default"] = Receipt;

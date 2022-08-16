@@ -1,6 +1,7 @@
 import React from "react";
 import { Heading } from "../Components/Heading";
 import jsPDF from "jspdf";
+import Navbar from "../Components/Navbar";
 
 const Receipt = ({transaction}:any) =>{
     const downloadPDF = () =>{
@@ -13,18 +14,27 @@ const Receipt = ({transaction}:any) =>{
     }
     return(
         <>
-            <button onClick={downloadPDF} className="bg-green-600 hover:bg-green-500 text-white px-2 rounded">Download PDF</button>
+            <Navbar/>
+            <button onClick={downloadPDF} className="bg-green-600 hover:bg-green-500 text-white px-2 rounded m-2">Download PDF</button>
+            <br />
             <div id="receipt">
-                <Heading title="Receipt" />
-                <div className="text-center">
-                    <span>Title : &nbsp; </span>
+                <h1 className="text-center"><b>Transaction Receipt</b></h1>
+                <br />
+                <div className="m-5">
+                    <span><b>Title : &nbsp;</b> </span>
                     <span>{transaction.title}</span>
                     <br />
-                    <span>Project : &nbsp; </span>
+                    <span><b>Project : &nbsp;</b> </span>
                     <span>{transaction.project}</span>
                     <br />
-                    <span>Amount : &nbsp; </span>
-                    <span>{transaction.amount}</span>
+                    <span><b>Status : &nbsp;</b> </span>
+                    <span>{transaction.status}</span>
+                    <br />
+                    <span><b>Type : &nbsp;</b> </span>
+                    <span>{transaction.type}</span>
+                    <br />
+                    <span><b>Amount : &nbsp;</b> </span>
+                    <span>{transaction.unit} {transaction.amount*transaction.quantity}</span>
                     <br />
                 </div>
             </div>

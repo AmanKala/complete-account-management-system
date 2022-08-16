@@ -31,7 +31,9 @@ class AuthController extends Controller
     {
         // Validate and Save the values in database.
         User::create($req->validated());
-        return Redirect::route('login');
+        Session::flash('success','User created successfully');
+        // return Redirect::route('login');
+        return Redirect::route('/');
     }
     
     public function check(Request $req)
@@ -54,13 +56,22 @@ class AuthController extends Controller
         {
             if(Hash::check($req->password,$userInfo->password))
             {
-                Session::flash('logged_user','Logged In');
+                $req->session()->put('logged_user',$userInfo->id);
                 return Redirect::route('home');
             }
             else
             {
                 return back()->with('fail',"Incorrect Password");
             }
+        }
+    }
+
+    function logout()
+    {
+        if(session()->has('logged_user'))
+        {
+            session()->pull('logged_user');
+            return Redirect::route('login');
         }
     }
 }

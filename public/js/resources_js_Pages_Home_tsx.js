@@ -66,7 +66,10 @@ var Navbar = function Navbar() {
   }, "Transaction List"), react_1["default"].createElement(inertia_react_1.InertiaLink, {
     href: "/createtransaction",
     className: "bg-transparent font-semibold hover:underline text-white hover:text-green-200 px-4 hover:border-transparent rounded"
-  }, "Create Transaction")));
+  }, "Create Transaction"), react_1["default"].createElement(inertia_react_1.InertiaLink, {
+    href: "/logout",
+    className: "bg-transparent font-semibold hover:underline text-white hover:text-red-400 px-4 hover:border-transparent rounded"
+  }, "Logout")));
 };
 
 exports["default"] = Navbar;
@@ -97,9 +100,8 @@ var Heading_1 = __webpack_require__(/*! ../Components/Heading */ "./resources/js
 
 var Navbar_1 = __importDefault(__webpack_require__(/*! ../Components/Navbar */ "./resources/js/Components/Navbar.tsx"));
 
-var Home = function Home(_ref) {
-  var logged_user = _ref.logged_user;
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Navbar_1["default"], null), console.log(logged_user), react_1["default"].createElement(Heading_1.Heading, {
+var Home = function Home() {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Navbar_1["default"], null), react_1["default"].createElement(Heading_1.Heading, {
     title: "Hey There! Welcome..."
   }));
 };
