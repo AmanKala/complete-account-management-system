@@ -23,20 +23,20 @@ Route::post('/register', [AuthController::class, 'store'])->name('register.store
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'check'])->name('login.check');
-Route::get('/createtransaction', [TransController::class, 'createTransaction'])->name('createtransaction');
-Route::post('/createtransaction', [TransController::class, 'store'])->name('createtransaction.store');
-
-Route::get('/transationlist', [TransController::class, 'transationlist'])->name('transationlist');
-
-Route::get('/edit/{id}', [TransController::class, 'edit'])->name('edit');
-Route::post('/edit', [TransController::class, 'update'])->name('update');
-
-Route::get('delete/{id}',[TransController::class, 'delete'])->name('delete');
-
-Route::get('receipt/{id}', [TransController::class,'generatePDF'])->name('receipt');
 
 
-// Route::group(['middleware'=>['auth']],function(){
-   
 
-// });
+Route::group(['middleware'=>['auth.check']],function(){
+    Route::get('/createtransaction', [TransController::class, 'createTransaction'])->name('createtransaction');
+    Route::post('/createtransaction', [TransController::class, 'store'])->name('createtransaction.store');
+    
+    Route::get('/transationlist', [TransController::class, 'transationlist'])->name('transationlist');
+    
+    Route::get('/edit/{id}', [TransController::class, 'edit'])->name('edit');
+    Route::post('/edit', [TransController::class, 'update'])->name('update');
+    
+    Route::get('delete/{id}',[TransController::class, 'delete'])->name('delete');
+    
+    Route::get('receipt/{id}', [TransController::class,'generatePDF'])->name('receipt');
+
+});

@@ -22,6 +22,8 @@
         "@inertiajs/inertia": "^0.11.0",
         "@inertiajs/inertia-react": "^0.8.0",
         "@types/react": "^18.0.15",
+        "html2canvas": "^1.4.1",
+        "jspdf": "^2.5.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "ts-loader": "^9.3.1",

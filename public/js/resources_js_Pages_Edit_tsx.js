@@ -199,10 +199,16 @@ var Edit = function Edit(_ref) {
 
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Heading_1.Heading, {
     title: "Edit Transaction"
-  }), console.log(transaction), react_1["default"].createElement("form", {
+  }), react_1["default"].createElement("div", {
+    className: "flex items-center justify-center min-h-screen bg-gray-100"
+  }, react_1["default"].createElement("div", {
+    className: "px-8 py-2 mx-4 mt-1 text-left bg-white shadow-lg md:w-4/5 lg:w-4/5 sm:w-4/5 rounded"
+  }, react_1["default"].createElement("form", {
     onSubmit: handleData,
     className: "m-5"
-  }, react_1["default"].createElement(InputField_1["default"], {
+  }, react_1["default"].createElement("div", {
+    className: "grid grid-cols-2 gap-4"
+  }, react_1["default"].createElement("div", null, react_1["default"].createElement(InputField_1["default"], {
     title: "",
     name: "id",
     value: data.title,
@@ -238,7 +244,7 @@ var Edit = function Edit(_ref) {
     value: data.quantity,
     type: "number",
     onChange: handleInput
-  }), errors.quantity && react_1["default"].createElement("div", null, errors.quantity), react_1["default"].createElement(InputField_1["default"], {
+  }), errors.quantity && react_1["default"].createElement("div", null, errors.quantity)), react_1["default"].createElement("div", null, react_1["default"].createElement(InputField_1["default"], {
     title: "Unit Name",
     name: "unit_name",
     value: data.unit_name,
@@ -268,7 +274,7 @@ var Edit = function Edit(_ref) {
     value: data.project,
     type: "text",
     onChange: handleInput
-  }), errors.project && react_1["default"].createElement("div", null, errors.project), react_1["default"].createElement(InputField_1["default"], {
+  }), errors.project && react_1["default"].createElement("div", null, errors.project))), react_1["default"].createElement(InputField_1["default"], {
     title: "Comment",
     name: "comment",
     value: data.comment,
@@ -276,8 +282,8 @@ var Edit = function Edit(_ref) {
     onChange: handleInput
   }), errors.comment && react_1["default"].createElement("div", null, errors.comment), react_1["default"].createElement("button", {
     type: "submit",
-    className: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-  }, "Edit Transaction")));
+    className: "bg-green-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mt-2 w-full"
+  }, "Edit Transaction")))));
 };
 
 exports["default"] = Edit;

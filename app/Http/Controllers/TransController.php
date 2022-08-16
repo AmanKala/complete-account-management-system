@@ -7,7 +7,6 @@ use App\Http\Requests\TransactionRequest;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
-use PDF;
 
 class TransController extends Controller
 {
@@ -62,13 +61,7 @@ class TransController extends Controller
     
     public function generatePDF($id)
     {
-        // $data = Transaction::find($id);
-        // $transaction_data = [
-        //     'data' => $data,
-        // ];
-
-        // $pdf = PDF::loadView('Receipt', $transaction_data);
-    
-        // return $pdf->download('Receipt.pdf');
+        $transaction=Transaction::find($id);
+        return Inertia::render('Receipt',['transaction'=>$transaction]);
     }
 }

@@ -54,7 +54,7 @@ class AuthController extends Controller
         {
             if(Hash::check($req->password,$userInfo->password))
             {
-                Session::flash('logged_user',$userInfo->id);
+                Session::flash('logged_user','Logged In');
                 return Redirect::route('home');
             }
             else

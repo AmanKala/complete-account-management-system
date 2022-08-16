@@ -106,7 +106,7 @@ var TransactionListing = function TransactionListing(props) {
   };
 
   var showPromt = function showPromt(id) {
-    if (window.confirm('Delete this transaction?')) {
+    if (window.confirm('Hold On Sparky.... Really want to Delete this transaction?')) {
       var url = "/delete/".concat(id);
       inertia_1.Inertia.get(url);
     }

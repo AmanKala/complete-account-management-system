@@ -40091,7 +40091,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_CreateTransaction_tsx":1,"resources_js_Pages_Edit_tsx":1,"resources_js_Pages_Home_tsx":1,"resources_js_Pages_Login_tsx":1,"resources_js_Pages_Receipt_tsx":1,"resources_js_Pages_Register_tsx":1,"resources_js_Pages_TransactionListing_tsx":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_CreateTransaction_tsx":1,"resources_js_Pages_Edit_tsx":1,"resources_js_Pages_Home_tsx":1,"resources_js_Pages_Login_tsx":1,"resources_js_Pages_Receipt_tsx":1,"resources_js_Pages_Register_tsx":1,"resources_js_Pages_TransactionListing_tsx":1,"node_modules_html2canvas_dist_html2canvas_js":1,"node_modules_dompurify_dist_purify_js":1,"node_modules_canvg_lib_index_es_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

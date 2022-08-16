@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthCheck
 {
@@ -16,7 +17,11 @@ class AuthCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        
+        // dd(session()->has('logged_user'));
+        // if(!session()->has('logged_user') && ($request->path() != '/login' && $request->path() != '/register') )
+        // {
+        //     return Redirect::route('login');
+        // }
         return $next($request);
     }
 }

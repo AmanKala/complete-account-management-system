@@ -11,7 +11,7 @@ const TransactionListing = (props:ListProps) =>{
         Inertia.get(url);
     }
     const showPromt = (id:any) => {
-        if(window.confirm('Delete this transaction?')){
+        if(window.confirm('Hold On Sparky.... Really want to Delete this transaction?')){
             const url=`/delete/${id}`;
             Inertia.get(url);
         }
