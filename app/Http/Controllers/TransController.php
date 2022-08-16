@@ -15,22 +15,26 @@ class TransController extends Controller
     {
         return Inertia::render('CreateTransaction');
     }
+
     public function store (TransactionRequest $req)
     {
         // Validate and Save the values in database.
         Transaction::create($req->validated());
         return Redirect::route('transationlist');
     }
+
     public function transationlist ()
     {
         $data = Transaction::all();
         return Inertia::render('TransactionListing',['data'=>$data]);
     }
+
     public function edit($id)
     {
         $transaction=Transaction::find($id);
         return Inertia::render('Edit',['transaction'=>$transaction]);
     }
+
     public function update (Request $req)
     {
         $data = Transaction::find($req->id);
@@ -48,12 +52,14 @@ class TransController extends Controller
         $data->save();
         return Redirect::route('transationlist');
     }
+
     public function delete ($id)
     {
         $data=Transaction::find($id);
         $data->delete();
         return Redirect::route('transationlist');
     }
+    
     public function generatePDF($id)
     {
         // $data = Transaction::find($id);

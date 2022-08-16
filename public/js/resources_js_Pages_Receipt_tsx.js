@@ -24,8 +24,8 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var Heading = function Heading(props) {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("h1", {
-    className: "text-xl text-center font-bold underline"
-  }, props.title));
+    className: "text-xl text-center text-gray-700 font-bold hover:text-red-700"
+  }, props.title), react_1["default"].createElement("hr", null));
 };
 
 exports.Heading = Heading;

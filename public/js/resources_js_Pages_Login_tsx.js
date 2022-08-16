@@ -24,8 +24,8 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var Heading = function Heading(props) {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("h1", {
-    className: "text-xl text-center font-bold underline"
-  }, props.title));
+    className: "text-xl text-center text-gray-700 font-bold hover:text-red-700"
+  }, props.title), react_1["default"].createElement("hr", null));
 };
 
 exports.Heading = Heading;
@@ -120,7 +120,11 @@ var Register = function Register() {
     setData(Object.assign(Object.assign({}, data), _defineProperty({}, name, value)));
   };
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Heading_1.Heading, {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
+    className: "flex items-center justify-center min-h-screen bg-gray-100"
+  }, react_1["default"].createElement("div", {
+    className: "px-8 py-4 mx-4 mt-2 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3"
+  }, react_1["default"].createElement(Heading_1.Heading, {
     title: "Login Page"
   }), react_1["default"].createElement("form", {
     onSubmit: handleData
@@ -130,15 +134,25 @@ var Register = function Register() {
     value: data.email,
     type: "email",
     onChange: handleInput
-  }), errors.email && react_1["default"].createElement("div", null, errors.email), react_1["default"].createElement(InputField_1["default"], {
+  }), errors.email && react_1["default"].createElement("div", {
+    className: "text-xs text-red-600"
+  }, errors.email), react_1["default"].createElement(InputField_1["default"], {
     title: "Password",
     name: "password",
     value: data.password,
     type: "password",
     onChange: handleInput
-  }), errors.password && react_1["default"].createElement("div", null, errors.password), react_1["default"].createElement("button", {
-    type: "submit"
-  }, "Login")));
+  }), errors.password && react_1["default"].createElement("div", {
+    className: "text-xs text-red-600"
+  }, errors.password), react_1["default"].createElement("button", {
+    type: "submit",
+    className: "bg-green-700 w-full hover:bg-green-500 text-white font-bold py-2 px-4 rounded mt-2"
+  }, "Login"), react_1["default"].createElement("div", {
+    className: "mt-2 "
+  }, "Need an Account?", react_1["default"].createElement(inertia_react_1.InertiaLink, {
+    href: "/register",
+    className: "text-blue-600 hover:underline"
+  }, "Register Here"))))));
 };
 
 exports["default"] = Register;

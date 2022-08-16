@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 { 
@@ -21,16 +21,19 @@ class AuthController extends Controller
     {
         return Inertia::render('Register');
     }
+
     public function login (Request $req)
     {
         return Inertia::render('Login');
     }
+
     public function store (AuthRequest $req)
     {
         // Validate and Save the values in database.
         User::create($req->validated());
         return Redirect::route('login');
     }
+    
     public function check(Request $req)
     {
         // Validate Requests
@@ -51,7 +54,7 @@ class AuthController extends Controller
         {
             if(Hash::check($req->password,$userInfo->password))
             {
-                $req->session()->put('logged_user',$userInfo->id);
+                Session::flash('logged_user',$userInfo->id);
                 return Redirect::route('home');
             }
             else
