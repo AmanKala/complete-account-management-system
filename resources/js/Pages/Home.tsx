@@ -1,12 +1,12 @@
 import React from "react";
-import CreateTransaction from "./CreateTransaction";
-import Register from "./Register";
+import { Heading } from "../Components/Heading";
+import Navbar from "../Components/Navbar";
 
 const Home = () => {
     return (
         <>
-            <Register/>
-            <CreateTransaction/>
+            <Navbar/>
+            <Heading title="Hey There! Welcome..." />
         </>
     );
 };

@@ -24,8 +24,8 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var Heading = function Heading(props) {
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("h1", {
-    className: "text-xl text-center font-bold underline"
-  }, props.title));
+    className: "text-xl text-center text-gray-700 font-bold hover:text-red-700"
+  }, props.title), react_1["default"].createElement("hr", null));
 };
 
 exports.Heading = Heading;
@@ -53,13 +53,15 @@ Object.defineProperty(exports, "__esModule", ({
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var InputField = function InputField(props) {
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", null, react_1["default"].createElement("label", null, props.title), react_1["default"].createElement("br", null), react_1["default"].createElement("input", {
-    className: "shadow appearance-none border rounded w-half py-2 px-3 text-gray-700 focus:shadow-outline",
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", null, react_1["default"].createElement("label", {
+    className: "block text-gray-500 font-bold mb-1 md:mb-0 pr-4"
+  }, props.title), react_1["default"].createElement("input", {
+    className: "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-1 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500",
     type: props.type,
     name: props.name,
     value: props.value,
     onChange: props.onChange
-  }), react_1["default"].createElement("br", null), react_1["default"].createElement("br", null)));
+  })));
 };
 
 exports["default"] = InputField;
@@ -76,58 +78,6 @@ exports["default"] = InputField;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  var desc = Object.getOwnPropertyDescriptor(m, k);
-
-  if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-    desc = {
-      enumerable: true,
-      get: function get() {
-        return m[k];
-      }
-    };
-  }
-
-  Object.defineProperty(o, k2, desc);
-} : function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  o[k2] = m[k];
-});
-
-var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
-  Object.defineProperty(o, "default", {
-    enumerable: true,
-    value: v
-  });
-} : function (o, v) {
-  o["default"] = v;
-});
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) {
-    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-  }
-
-  __setModuleDefault(result, mod);
-
-  return result;
-};
-
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -138,29 +88,28 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js")); // import { useForm } from '@inertiajs/inertia-react'
-
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var Heading_1 = __webpack_require__(/*! ../Components/Heading */ "./resources/js/Components/Heading.tsx");
 
 var InputField_1 = __importDefault(__webpack_require__(/*! ../Components/InputField */ "./resources/js/Components/InputField.tsx"));
 
+var inertia_react_1 = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+
 var Register = function Register() {
-  // const { data, setData, post, processing, errors } = useForm({
-  //     first_name: "",
-  //     email:"",
-  // });
-  var _ref = (0, react_1.useState)({
+  var _ref = (0, inertia_react_1.useForm)({
     email: "",
     password: ""
   }),
-      _ref2 = _slicedToArray(_ref, 2),
-      user = _ref2[0],
-      setUser = _ref2[1];
+      data = _ref.data,
+      setData = _ref.setData,
+      post = _ref.post,
+      processing = _ref.processing,
+      errors = _ref.errors;
 
   var handleData = function handleData(event) {
     event.preventDefault();
-    console.log(user); // post(route('register'))
+    post('/login');
   };
 
   var name, value;
@@ -168,28 +117,42 @@ var Register = function Register() {
   var handleInput = function handleInput(event) {
     name = event.target.name;
     value = event.target.value;
-    setUser(Object.assign(Object.assign({}, user), _defineProperty({}, name, value)));
+    setData(Object.assign(Object.assign({}, data), _defineProperty({}, name, value)));
   };
 
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Heading_1.Heading, {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
+    className: "flex items-center justify-center min-h-screen bg-gray-100"
+  }, react_1["default"].createElement("div", {
+    className: "px-8 py-4 mx-4 mt-2 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3"
+  }, react_1["default"].createElement(Heading_1.Heading, {
     title: "Login Page"
   }), react_1["default"].createElement("form", {
     onSubmit: handleData
   }, react_1["default"].createElement(InputField_1["default"], {
     title: "Email Id",
     name: "email",
-    value: user.email,
+    value: data.email,
     type: "email",
     onChange: handleInput
-  }), react_1["default"].createElement(InputField_1["default"], {
+  }), errors.email && react_1["default"].createElement("div", {
+    className: "text-xs text-red-600"
+  }, errors.email), react_1["default"].createElement(InputField_1["default"], {
     title: "Password",
     name: "password",
-    value: user.password,
+    value: data.password,
     type: "password",
     onChange: handleInput
-  }), react_1["default"].createElement("button", {
-    type: "submit"
-  }, "Register")));
+  }), errors.password && react_1["default"].createElement("div", {
+    className: "text-xs text-red-600"
+  }, errors.password), react_1["default"].createElement("button", {
+    type: "submit",
+    className: "bg-green-700 w-full hover:bg-green-500 text-white font-bold py-2 px-4 rounded mt-2"
+  }, "Login"), react_1["default"].createElement("div", {
+    className: "mt-2 "
+  }, "Need an Account?", react_1["default"].createElement(inertia_react_1.InertiaLink, {
+    href: "/register",
+    className: "text-blue-600 hover:underline"
+  }, "Register Here"))))));
 };
 
 exports["default"] = Register;

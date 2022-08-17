@@ -1,12 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TransController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
-Route::get('home', function(){
-  return Inertia::render('Home');
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +16,27 @@ Route::get('home', function(){
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'store'])->name('register.store');
+
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'check'])->name('login.check');
+
+Route::get('/logout', [AuthController::class,'logout']);
+
+Route::group(['middleware'=>['auth.check']],function(){
+    Route::get('/', [AuthController::class, 'home'])->name('home');
+
+    Route::get('/createtransaction', [TransController::class, 'createTransaction'])->name('createtransaction');
+    Route::post('/createtransaction', [TransController::class, 'store'])->name('createtransaction.store');
+    
+    Route::get('/transationlist', [TransController::class, 'transationlist'])->name('transationlist');
+    
+    Route::get('/edit/{id}', [TransController::class, 'edit'])->name('edit');
+    Route::post('/edit', [TransController::class, 'update'])->name('update');
+    
+    Route::get('delete/{id}',[TransController::class, 'delete'])->name('delete');
+    
+    Route::get('receipt/{id}', [TransController::class,'generatePDF'])->name('receipt');
+
+});
