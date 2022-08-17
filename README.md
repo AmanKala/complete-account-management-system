@@ -1,64 +1,49 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Account Management System
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Description :
+- A Fully Functional `Account Management System With Receipt Generation`.
+- Developed with `React-Typescript` and `Laravel` which are integrated with the help of `Inertia.js`.
+- `Tailwind CSS` has been used for styling.
+- It consists of an `Authentication System` for for registration and login functionalities.
+- Errors are shown under the respective feilds if the user violetes the rules during registration and login. 
+- After a successful login/register thte user is redirected to the Home page.
+- Only after a succesfull login/registration the user will be able to create the transaction and access the transation listing.
+- Created transactions can be `Edited` and `Deleted` by selectting the respective operations form the Transaction listing page itself.
+- A `Receipt` can also be generated for a transaction by clicking the `Generate PDF` option provided.
+- `jsPDF` has been used for PDF generation in react.
 
-## About Laravel
+**Resources Referred:**
+- Laravel important commands : https://blog.quickadminpanel.com/list-of-21-artisan-make-commands-with-parameters/
+- Rect-TypeScript : https://www.youtube.com/playlist?list=PLC3y8-rFHvwi1AXijGTKM0BKtHzVC-LSK
+- Inertia : https://inertiajs.com/server-side-setup
+- Tailwind CSS : https://tailwindcss.com/docs/guides/create-react-app
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Installation Steps:**
+1. Install WamppServer : https://sourceforge.net/projects/wampserver/
+2. Install Composer : https://getcomposer.org/
+3. Insatll Laravel : https://laravel.com/docs/9.x (preferred version is v8 )
+4. Clone the repository by adding this link : https://github.com/AmanKala/complete-account-management-system.git
+5. For Creating the project manually you can make a laravel app with `composer` as mentioned in the above blog and then install `inertia.js` to integrate `React.js`
+    - https://inertiajs.com/server-side-setup
+    -to install react in laravel : https://www.youtube.com/watch?v=qnTMyUEgaNE
+    
+## Screenshots of Working :
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Register Page:**
+![image](https://user-images.githubusercontent.com/73444046/185043960-bfa9fb56-587d-42e4-a90a-dafd45a6c2b7.png)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Login Page:**
+![image](https://user-images.githubusercontent.com/73444046/185044042-c248eb15-2641-4b7e-b732-3324a1ad5062.png)
 
-## Learning Laravel
+**Create Transaction Page:**
+![image](https://user-images.githubusercontent.com/73444046/185044134-7f6f0bf5-cdcd-4d32-a17a-5e1184a60583.png)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Transaction Listing Page:**
+![image](https://user-images.githubusercontent.com/73444046/185044252-63ca50fc-22c7-4b94-993a-f4e303bdfaeb.png)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Receipt Generated:**
+![image](https://user-images.githubusercontent.com/73444046/185044394-c171aa53-6a79-4d53-ba5f-eb829d6feb1a.png)
 
-## Laravel Sponsors
+**Downloaded Receipt PDF:** 
+[Receipt (3).pdf](https://github.com/AmanKala/complete-account-management-system/files/9356727/Receipt.3.pdf)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
