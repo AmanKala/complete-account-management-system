@@ -16,7 +16,6 @@ const mix = require('laravel-mix');
    require('postcss-import'),
    require('tailwindcss'),
  ])
-//  .webpackConfig(require('./webpack.config'));
  
 if (mix.inProduction()) {
  mix.version();

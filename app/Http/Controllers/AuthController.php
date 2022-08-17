@@ -32,7 +32,6 @@ class AuthController extends Controller
         // Validate and Save the values in database.
         User::create($req->validated());
         Session::flash('success','User created successfully');
-        // return Redirect::route('login');
         return Redirect::route('/');
     }
     
