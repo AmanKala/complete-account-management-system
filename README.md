@@ -25,7 +25,7 @@
 4. Clone the repository by adding this link : https://github.com/AmanKala/complete-account-management-system.git
 5. For Creating the project manually you can make a laravel app with `composer` as mentioned in the above blog and then install `inertia.js` to integrate `React.js`
     - https://inertiajs.com/server-side-setup
-    -to install react in laravel : https://www.youtube.com/watch?v=qnTMyUEgaNE
+    - to install react in laravel : https://www.youtube.com/watch?v=qnTMyUEgaNE
     
 ## Screenshots of Working :
 
